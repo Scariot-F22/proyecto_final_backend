@@ -6,6 +6,7 @@ const routes = express.Router();
 routes.post('/register', userValidation, userController.register);
 routes.post('/login',userValidation, userController.login);
 
+// TODO VALIDATIONS
 routes.post('/animes', animesController.createAnimes);
 routes.get('/animes', animesController.getAnimes);
 routes.get('/animes/:id', animesController.getAnimeById);

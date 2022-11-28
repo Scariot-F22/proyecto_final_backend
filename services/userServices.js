@@ -23,17 +23,21 @@ const registerService = (email, password)=> {
 
 //FIX ME
 const loginService = (email, password) => {
-    return new Promise((resolve, reject) => {
-        User.findOne({ email }, (error, user) => {
-            if(error){
-                reject({ status: 500, message: 'Se produjo un error al registrar el usuario.', error });
-            }
-            if(!password && !user.comparePassword(password)){
-                reject({ status: 401, message: 'El usuario o clave no son correctos.' });
-            }
-            resolve({ status: 200,  message: 'Te has logueado correctamente', token: authServices.createToken(user) });
+    try {
+        return new Promise((resolve, reject) => {
+            User.findOne({ email }, (error, user) => {
+                if(error){
+                    reject({ status: 500, message: 'Se produjo un error al registrar el usuario.', error });
+                }
+                if(!password && !User.comparePassword(password)){
+                    reject({ status: 401, message: 'El usuario o clave no son correctos.' });
+                }
+                resolve({ status: 200,  message: 'Te has logueado correctamente', token: authServices.createToken(user) });
+            });
         });
-    });
+    } catch (error) {
+        throw error
+    }
 }
 
 module.exports = {
