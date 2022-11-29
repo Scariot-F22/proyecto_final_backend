@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ChaptersSchema = new Schema({
-    title: { type: String, require: true, lowercase: true, unique: true },
+    title: { type: String, require: true },
     description: { type: String, require: true },
     video: { type: String, require: true },
     registerDate: { type: Date, default: Date.now() },

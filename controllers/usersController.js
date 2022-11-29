@@ -1,5 +1,3 @@
-// const { User } = require('../models');
-// const { authServices } = require('../services');
 const { userServices } = require('../services')
 const { validationResult } = require('express-validator')
 

@@ -21,19 +21,20 @@ const getAnimes = async(req, res)=> {
     }
 }
 
-//FIX ME
+//FIX ME 
 const getAnimeById = async(req, res)=> {
     try {
         const anime = await Animes.findById(req.params.id); 
         console.log(anime)
-        const { _id, title, description, image } = anime;
+        const { _id, title, description, image, chapters } = anime;
         if(anime) {
-            res.status(200).send({ _id, title, description, image })
+            res.status(200).send({ _id, title, description, image, chapters })
         }
+
         //ME SALE POR EL CATCH
         res.status(400).send({ message: "id de usuario inválido" })
     } catch (error) {
-        return res.status(500).send({ message: 'Error inesperado',error })
+        return error
     }
 }
 

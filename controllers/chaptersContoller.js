@@ -1,37 +1,57 @@
-const createChapter = (req, res) => {
-    res.status(200).send("Capitulo insertado")
-}
+const { Chapters, Animes } = require("../models");
+const { chaptersServices } = require('../services')
 
-const getChaptersById = (req, res) => {
-    let {id} = req.params
-    if (id > 0) {
-        res.status(200).send("Lista de capitulos")
-    } else {
-        res.status(500).send("Error al cargar los capitulos")
+const createChapter = async(req, res) => {
+    try {
+        const { title,description,video,animeId } = req.body
+        
+        const result = await chaptersServices.createChapter(title,description,video, animeId);
+        res.status(201).send(result)
+    } catch (error) {
+        res.status(500).send({ message: "Error inesperado al insertar capítulo", error })
     }
 }
 
-const updateChapter = (req, res) => {
-    let {id} = req.params
-    if (id > 0) {
-        res.status(200).send("Capitulo editado")
-    } else {
-        res.status(500).send("Error al cargar los capitulos")
+const getChapters = async(req, res) => {
+    try {
+        const { animeId } = req.body;
+        const chapters = await Chapters.find({ animeId: animeId }) 
+        console.log(chapters)
+        if(chapters) { 
+            res.status(200).send(chapters)  
+        }
+        return res.status(400).send({ message: "id de anime inválido" })
+    } catch (error) {
+        return error
+    } 
+}
+
+//TODO
+const updateChapter = async(req, res) => {
+    try {
+        const { id } = req.params;
+    
+        const result = await chaptersServices.updateChapter(id, req.body);
+        res.status(201).send(result)
+    } catch (error) {
+        res.status(500).send({ message: 'Error al editar anime', error })
     }
 }
 
-const deleteChapter = (req, res) => {
-    let {id} = req.params
-    if (id > 0) {
-        res.status(200).send("Capitulo eliminado")
-    } else {
-        res.status(500).send("Error al cargar los capitulos")
+const deleteChapter = async(req, res)=> {
+    try {
+        let {id} = req.params;
+
+        const result = await chaptersServices.deleteChapter(id);
+        res.status(201).send({ message: "Capítulo eliminado con éxito", result } )
+    } catch (error) {
+        return res.status(500).send({ message: "Error al eliminar capítulo", error })
     }
 }
 
 module.exports = {
     createChapter,
-    getChaptersById,
+    getChapters,
     updateChapter,
     deleteChapter
 }

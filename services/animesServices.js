@@ -41,8 +41,8 @@ const deleteAnime = async(id)=> {
     } catch (error) {
         throw error
     }
-  
 }
+
 module.exports = {
     createAnimes,
     updateAnime,

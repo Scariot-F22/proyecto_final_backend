@@ -13,8 +13,9 @@ routes.get('/animes/:id', animesController.getAnimeById);
 routes.put('/animes/:id', animesController.updateAnime);
 routes.delete('/animes/:id', animesController.deleteAnime);
 
+// TODO VALIDATIONS
 routes.post('/chapters', chaptersController.createChapter);
-routes.get('/chapters/:id', chaptersController.getChaptersById);
+routes.get('/chapters', chaptersController.getChapters);
 routes.put('/chapters/:id', chaptersController.updateChapter);
 routes.delete('/chapters/:id', chaptersController.deleteChapter);
 
