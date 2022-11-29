@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "6a7346c3-a2f0-45d0-a7d1-ce2af5b5b7a1",
+		"name": "EndProjectNumen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24129524"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"scariotfranco@gmail.com\",\r\n    \"password\": \"holakease\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"scariotfranco2@gmail.com\",\r\n    \"password\": \"holakease\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "animes",
+			"item": [
+				{
+					"name": "getAnimes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/animes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"animes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAnimeById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/animes/637b67edebdaa04907f270f6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"animes",
+								"637b67edebdaa04907f270f6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createAnime",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Shingeki No Kyojin\",\r\n    \"description\": \"La historia nos traslada a un mundo en el que la humanidad estuvo a punto de ser exterminada cientos de años atrás por los gigantes. Los gigantes son enormes, parecen no ser inteligentes y devoran seres humanos. Lo peor es que parece que lo hacen por placer y no por alimentarse. Una pequeña parte de la humanidad ha conseguido sobrevivir protegiéndose en una ciudad con unos altísimos muros, más altos que el mayor de los gigantes. La ciudad vive su vida tranquila, y hace más de 100 años que ningún gigante aparece por allí. Eren y su hermana adoptiva Mikasa son todavía unos adolescentes cuando ven algo horroroso: un gigante mucho mayor que todos los que la humanidad había conocido hasta el momento está destruyendo los muros de la ciudad. No pasa mucho tiempo hasta que los gigantes entran por el hueco abierto en el muro y comienzan a devorar a la gente.\",\r\n    \"image\": \"https://www3.animeflv.net/anime/shingeki-no-kyojin\",\r\n    \"category\": \"Fantasía - Acción - Drama\",\r\n    \"userId\": \"637a3e07e48fb3e2dbf156df\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/animes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"animes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateAnime",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Dragon Ball GT\",\r\n    \"description\": \"Ésta es la etapa final de Dragon Ball, aquí veremos a un Goku un poco más viejo acompañado de Oob, la reencarnación de Boo. Ahora Oob, después de un largo entrenamiento, se ha vuelto muy fuerte junto a Goku. Ahora un nuevo problema se le presenta a Goku, él ha sido convertido en niño por un viejo enemigo, con unas esferas de dragón nunca antes vistas, pero éstas no se esparcen por La Tierra, si no por la galaxia, además, si no encuentran las esferas en un determinado tiempo, La Tierra explotará. Esto llevará a Goku, Trunks y su nieta Pan, a una aventura por toda la galaxia.\",\r\n    \"image\": \"https://www3.animeflv.net/anime/dragon-ball-gt\",\r\n    \"category\": \"Acción - Fantasía\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/animes/6384ae69a57f25f7f92f3778",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"animes",
+								"6384ae69a57f25f7f92f3778"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAnime",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/animes/637b693f2d2b8110d6fb2468",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"animes",
+								"637b693f2d2b8110d6fb2468"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chapters",
+			"item": [
+				{
+					"name": "getChapterById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"animeId\": \"6384ae69a57f25f7f92f3778\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/chapters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"chapters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createChapter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Episodio 2\",\r\n    \"description\": \"Pan viaja en la nave espacial.\",\r\n    \"video\": \"https://www3.animeflv.net/ver/dragon-ball-gt-2\",\r\n    \"animeId\": \"6384ae69a57f25f7f92f3778\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/chapters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"chapters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateChapter",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Episodio 1\",\r\n    \"description\": \"Cuando nadie creía que podría suceder, de pronto unas extrañas esferas del dragón aparecen\",\r\n    \"video\": \"https://www3.animeflv.net/ver/dragon-ball-gt-1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/chapters/6385328e73b4e1f31bf15057",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"chapters",
+								"6385328e73b4e1f31bf15057"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteChapter",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/chapters/6384e779c1e17d4c3f547c3c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"chapters",
+								"6384e779c1e17d4c3f547c3c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
