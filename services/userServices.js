@@ -29,7 +29,7 @@ const loginService = (email, password) => {
                 if(error){
                     reject({ status: 500, message: 'Se produjo un error al registrar el usuario.', error });
                 }
-                if(!password && !User.comparePassword(password)){
+                if(!password && !user.comparePassword(password)){
                     reject({ status: 401, message: 'El usuario o clave no son correctos.' });
                 }
                 resolve({ status: 200,  message: 'Te has logueado correctamente', token: authServices.createToken(user) });

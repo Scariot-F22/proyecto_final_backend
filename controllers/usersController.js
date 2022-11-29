@@ -20,13 +20,13 @@ const register = async(req, res)=> {
 //FIX ME
 const login = async(req, res)=> {
     try {
-        const { email, password } = req.body;
+        const { email, password } = req.body; 
     
         const resultValidation = validationResult(req);
         const haveError = !resultValidation.isEmpty();
         if (haveError) {
             return res.status(400).send(resultValidation)
-        }
+        } 
         const result = await userServices.loginService(email, password).catch(error => error);
         res.status(result.status).send(result);
     } catch (error) {

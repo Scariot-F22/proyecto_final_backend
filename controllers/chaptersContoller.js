@@ -2,9 +2,14 @@ const { Chapters, Animes } = require("../models");
 const { chaptersServices } = require('../services')
 
 const createChapter = async(req, res) => {
-    try {
+    try { 
         const { title,description,video,animeId } = req.body
         
+        const resultValidation = validationResult(req);
+        const haveError = !resultValidation.isEmpty(); 
+        if (haveError) {
+            return res.status(400).send(resultValidation)
+        }
         const result = await chaptersServices.createChapter(title,description,video, animeId);
         res.status(201).send(result)
     } catch (error) {
@@ -26,11 +31,15 @@ const getChapters = async(req, res) => {
     } 
 }
 
-//TODO
 const updateChapter = async(req, res) => {
     try {
         const { id } = req.params;
     
+        const resultValidation = validationResult(req);
+        const haveError = !resultValidation.isEmpty(); 
+        if (haveError) {
+            return res.status(400).send(resultValidation)
+        }
         const result = await chaptersServices.updateChapter(id, req.body);
         res.status(201).send(result)
     } catch (error) {

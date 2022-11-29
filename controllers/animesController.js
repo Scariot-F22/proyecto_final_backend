@@ -1,3 +1,4 @@
+const { validationResult } = require("express-validator");
 const { Animes } = require("../models");
 const { animesServices } = require("../services");
 
@@ -5,6 +6,11 @@ const createAnimes = async(req, res)=> {
     try {
         const { title,description,image,category, userId } = req.body
     
+        const resultValidation = validationResult(req);
+        const haveError = !resultValidation.isEmpty(); 
+        if (haveError) {
+            return res.status(400).send(resultValidation)
+        }
         const result = await animesServices.createAnimes(title,description,image,category, userId);
         res.status(201).send(result)
     } catch (error) {
@@ -42,6 +48,11 @@ const updateAnime = async(req, res)=> {
     try {
         const { id } = req.params;
     
+        const resultValidation = validationResult(req);
+        const haveError = !resultValidation.isEmpty(); 
+        if (haveError) {
+            return res.status(400).send(resultValidation)
+        }
         const result = await animesServices.updateAnime(id, req.body);
         res.status(201).send(result)
     } catch (error) {

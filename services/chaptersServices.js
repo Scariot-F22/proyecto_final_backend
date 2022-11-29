@@ -23,14 +23,14 @@ const updateChapter = async(id, body)=> {
         const update = {
         title: body.title,
         description: body.description,
-        video: body.video,
+        video: body.video
         }
 
         result = await Chapters.findByIdAndUpdate(id, update);
         result.save();
     } catch (error) {
         throw error
-    }
+    } 
     return result;
 }
 
